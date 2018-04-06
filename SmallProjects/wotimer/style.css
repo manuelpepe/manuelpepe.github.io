@@ -23,6 +23,19 @@ body {
 	border-bottom: 0px;
 }
 
+@media (max-width: 600px) {
+	.container {
+		width: 100%;
+	}
+}
+
+
+@media (min-width:600px) and (max-width: 900px) {
+	.container {
+		width: 75%;
+	}
+}
+
 header {
 	background-color: #323da4;
 	margin-bottom: 30px;
