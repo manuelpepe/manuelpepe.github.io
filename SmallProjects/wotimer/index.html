@@ -5,18 +5,44 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>WOTimer</title>
 	<link rel="stylesheet" type="text/css" href="normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<div class="container">
-		<header>
-			<h2>WOTimer</h2>
-		</header>
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">WOTimer</a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+		      <ul class="nav navbar-nav">
+		        <li><a href="#">Home</a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Workouts <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		            <li id="preset1"><a href="#">Workout 1</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		
 		<main>
 			<div class="control">
 				<input type="text" id="ex_input" placeholder="Exercise"/>
 				<button id="ex_add">Add</button>
-				<button id="preset1">Preset1(testing)</button>
 			</div>
 			<div class="workout_list">
 				<h4>Workout: </h4>
@@ -29,6 +55,7 @@
 				<button id="timer_start">Start</button>
 				<button id="timer_stop">Stop</button>
 			</div>
+
 			<div class="timer">
 				<div id="timer_box" class="box">--</div>
 			</div>		
@@ -36,6 +63,8 @@
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
 	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script>
 	  if ('serviceWorker' in navigator) {
 	    console.log("Will the service worker register?");
