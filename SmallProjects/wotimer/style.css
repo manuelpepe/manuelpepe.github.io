@@ -1,0 +1,80 @@
+html, 
+body {
+    height: 100%;
+}
+
+html, * {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0px;
+}
+
+.container {
+	margin: 0px auto;
+	display: flex;
+	flex-direction: column;
+	width: 45%;
+	background-color: #e9e9e9;
+	height: 100%;
+	border: 1px solid black;
+	border-top: 0px;
+	border-bottom: 0px;
+}
+
+header {
+	background-color: #323da4;
+	margin-bottom: 30px;
+	padding: 0px 20px;
+}
+
+main {
+	display: flex;
+	align-items:  center;
+	flex-direction: column;
+}
+
+.workout_list {
+	width: 290px;
+}
+
+#ex_list > li {
+	width: 250px;
+	padding: 4px 0px;
+}
+
+li > button {
+	float: right;
+}
+
+.drag_ghost {
+  opacity: .5;
+  background: #C8EBFB;
+}
+
+.timer-control > button,
+.timer-control > input {
+	width: 50px;
+}
+
+.timer {
+	display: flex;
+	justify-content: center;
+	margin: 20px 0px;
+}
+
+.box {
+	height: 75px;
+	width: 75px;
+	border: 1px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 45px;
+	font-size: 1rem;
+}
+
+#timer_box {
+	background-color:green;
+}
