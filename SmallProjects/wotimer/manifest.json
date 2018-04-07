@@ -3,17 +3,17 @@
 	"name": "WOTimer - Workout Timer",
 	"icons": [
 	    {
-	    	"src": "icon-1x.png",
+	    	"src": "icons/icon-1x.png",
 	    	"type": "image/png",
 			"sizes": "48x48"
 	    },
 	    {
-			"src": "icon-2x.png",
+			"src": "icons/icon-2x.png",
 			"type": "image/png",
 			"sizes": "96x96"
 	    },
 	    {
-			"src": "icon-4x.png",
+			"src": "icons/icon-4x.png",
 			"type": "image/png",
 			"sizes": "192x192"
 	    }

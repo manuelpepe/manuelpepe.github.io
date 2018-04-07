@@ -4,9 +4,9 @@
 	<link rel="manifest" href="manifest.json">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>WOTimer</title>
-	<link rel="stylesheet" type="text/css" href="normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<div class="container">
@@ -19,18 +19,18 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="#">WOTimer</a>
+		      <a class="navbar-brand" href="index.html">WOTimer</a>
 		    </div>
 
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 		      <ul class="nav navbar-nav">
-		        <li><a href="#">Home</a></li>
+		        <li><a href="index.html">Home</a></li>
 		        <li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Workouts <span class="caret"></span></a>
 		          <ul class="dropdown-menu">
-		            <li id="preset1"><a href="#">Workout 1</a></li>
+		            <li><a href="index.html?workout=wo1">Workout 1</a></li>
 		          </ul>
 		        </li>
 		      </ul>
@@ -62,7 +62,8 @@
 		</main>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="js/workouts.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<script>

@@ -14,8 +14,10 @@ document.addEventListener("DOMContentLoaded", function() {
 		btn.addEventListener("click", onclick);
 		return btn;
 	}
+	// END-UTILITY //
+	
 
-	function checkList() {
+	function rearrangeList() {
 		var list = document.getElementById("ex_list");
 		var nodes = list.childNodes;
 		/*
@@ -34,9 +36,8 @@ document.addEventListener("DOMContentLoaded", function() {
 		animation: 150,
 		ghostClass: "drag_ghost",
 		scroll: true,
-		onEnd: checkList,
+		onEnd: rearrangeList,
 	});
-	// END-UTILITY //
 
 	function addExercise(name) {
 		exlist.push(name);
@@ -120,8 +121,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		clearInterval(intervalOff);	
 		document.getElementById("box_on").innerHTML = time_on.value;
 		document.getElementById("box_off").innerHTML = time_off.value;
-		// document.getElementById("cur_ex").innerHTML = "";
-		// document.getElementById("nxt_ex").innerHTML = (evt.finished) ? "<strong>FINISHED!</strong>" : "";
 	}
 
 	// END-HANDLERS // 
@@ -138,25 +137,26 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 	document.getElementById("timer_start").addEventListener("click", startTimers);
 	document.getElementById("timer_stop").addEventListener("click", stopTimers);
-	document.getElementById("preset1").addEventListener("click", function(evt) {
-		exlist = [];
-		let exs = [
-			"Muscle Ups",
-			"Dips",
-			"Pull-ups",
-			"Jump Squats",
-			"Chin-ups",
-			"1 Slow Pushup",
-			"Jump Squats",
-			"Australian Pullups (Close Grip)",
-			"Handstand Hold"
-		]
-
-		for (var i = 0; i < exs.length; i++){
-			addExercise(exs[i]);
-		}
-	});
 	// END-LISTENERS //
 
+	// Workout Presets
+	function setWorkout(exercises) {
+		exlist = []; // reset list
 
+		for (var i = 0; i < exercises.length; i++){
+			addExercise(exercises[i]);
+		}
+	}
+
+	// Load workout from get parameter
+	var qstr = location.search.substr(1);
+	if (qstr) {
+		var param = [],
+			workout;
+		qstr.split("&").forEach(function(item) {
+			param = item.split("=");
+			if (param[0] == "workout" && WORKOUTS[param[1]])
+				setWorkout(WORKOUTS[param[1]]);
+		})
+	}
 });
