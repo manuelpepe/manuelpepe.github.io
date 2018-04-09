@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		document.getElementById("ex_list").appendChild(item);
 	}
 
-	function showNextExercises() {
+	function showNextExercise() {
 		var last = document.getElementById("ex_list").childNodes[cur_step - 1];
 		if (last) last.style.fontWeight = "";
 		var current = document.getElementById("ex_list").childNodes[cur_step];
@@ -63,14 +63,15 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 
 	function playAlert(step) {
+		var beep = document.getElementById("beep");
 		if (step > 0 && step <= 3) {
-			document.getElementById("beep").play();
+			beep.play();
 		} else if (step == 0) {
-			document.getElementById("beep").play();
-			setTimeout(function() {
-				document.getElementById("beep").play();
-			}, 175)
-
+			beep.onended = function() {
+				beep.play();
+				beep.onended = undefined;
+			};
+			beep.play();
 		}
 	}
 
@@ -80,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 		clearInterval(intervalOn);
 
-		showNextExercises();
+		showNextExercise();
 		
 		box.innerHTML = on;
 		box.style.backgroundColor = "green";
@@ -91,7 +92,6 @@ document.addEventListener("DOMContentLoaded", function() {
 			playAlert(on);
 
 			if (on == 0){
-				on = time_on;
 				clearInterval(intervalOn);
 				startTimerOff()
 			}
@@ -114,7 +114,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 			if (off == 0){ 
 				cur_step++;
-				off = time_off;
 				clearInterval(intervalOff);
 				startTimerOn()
 
@@ -134,7 +133,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		clearInterval(intervalOn);	
 		clearInterval(intervalOff);	
 	}
-
 	// END-HANDLERS // 
 
 	// LISTENERS //
