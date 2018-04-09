@@ -62,6 +62,18 @@ document.addEventListener("DOMContentLoaded", function() {
 		if (current) current.style.fontWeight = "bold";
 	}
 
+	function playAlert(step) {
+		if (step > 0 && step <= 3) {
+			document.getElementById("beep").play();
+		} else if (step == 0) {
+			document.getElementById("beep").play();
+			setTimeout(function() {
+				document.getElementById("beep").play();
+			}, 175)
+
+		}
+	}
+
 	function startTimerOn() {
 		var on = time_on.value,
 			box = document.getElementById("timer_box");
@@ -74,8 +86,9 @@ document.addEventListener("DOMContentLoaded", function() {
 		box.style.backgroundColor = "green";
 		intervalOn = setInterval(function(){
 			on--;
-			console.log(on);
 			box.innerHTML = on;
+
+			playAlert(on);
 
 			if (on == 0){
 				on = time_on;
@@ -95,8 +108,9 @@ document.addEventListener("DOMContentLoaded", function() {
 		box.style.backgroundColor = "red"
 		intervalOff = setInterval(function(){
 			off--;
-			console.log(off);
 			box.innerHTML = off;
+
+			playAlert(off);
 
 			if (off == 0){ 
 				cur_step++;
@@ -119,8 +133,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	function stopTimers(evt) {
 		clearInterval(intervalOn);	
 		clearInterval(intervalOff);	
-		document.getElementById("box_on").innerHTML = time_on.value;
-		document.getElementById("box_off").innerHTML = time_off.value;
 	}
 
 	// END-HANDLERS // 
